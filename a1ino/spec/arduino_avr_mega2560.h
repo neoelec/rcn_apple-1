@@ -1,0 +1,11 @@
+#ifdef ARDUINO_AVR_MEGA2560
+#ifndef __A1_ARDUINO_AVR_MEGA2560_H__
+#define __A1_ARDUINO_AVR_MEGA2560_H__
+
+// #define CFG_A1INO_RAM
+#define CFG_A1INO_RAM_1000_SIZE   0x0000
+
+#define A1INO_Serial Serial
+
+#endif /* __A1_ARDUINO_AVR_MEGA2560_H__ */
+#endif /* ARDUINO_AVR_MEGA2560 */
