@@ -3,18 +3,6 @@
 
 #include <stdint.h>
 
-#ifdef __AVR__
-#include <avr/pgmspace.h>
-#else
-#ifdef PROGMEM
-#undef PROGMEM
-#endif
-#define PROGMEM
-#ifndef pgm_read_byte
-#define pgm_read_byte(__ptr)    *((uint8_t *)(__ptr))
-#endif
-#endif /* __AVR_ARCH__ */
-
 #include "emul_8bit_bus.h"
 
 struct e8bit_rom {

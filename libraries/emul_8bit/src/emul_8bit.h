@@ -12,6 +12,8 @@
 
 #include <list.h>
 
+#include "emul_8bit_pgmspace.h"
+
 #include "emul_8bit_bus.h"
 #include "emul_8bit_io.h"
 #include "emul_8bit_ram.h"
