@@ -11,7 +11,7 @@ static void __print_banner(void) {
 
 static void __select_emulator_type(void) {
   int prod_id, prod_id_max;
-  const char prompt[] PROGMEM = "Select Device Type [1 - %d] : ";
+  static const char prompt[] PROGMEM = "Select Device Type [1 - %d] : ";
 
   prod_id_max = a1ino_get_nr_prod();
 
