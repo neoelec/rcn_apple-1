@@ -1,4 +1,6 @@
 // SPDX-License-Identifier: GPL-2.0
+#include <stdarg.h>
+
 #include "inc/a1ino.h"
 
 void a1ino_puts_P(const char *str) {
