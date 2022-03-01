@@ -19,10 +19,13 @@ static void e8bit_ram_write(const struct e8bit_bus_dev *dev,
 
 void e8bit_ram_setup(struct e8bit_ram *ram,
     uint16_t base, uint16_t size, uint8_t *mem) {
-  ram->dev.base = base;
-  ram->dev.end = base + (size - 1);
-  ram->dev.read = e8bit_ram_read;
-  ram->dev.write = e8bit_ram_write;
-  ram->dev.type = E_E8BIT_BUS_TYPE_RAM;
+  struct e8bit_bus_dev *dev = &ram->dev;
+
+  dev->base = base;
+  dev->end = base + (size - 1);
+  dev->read = e8bit_ram_read;
+  dev->write = e8bit_ram_write;
+  dev->type = E_E8BIT_BUS_TYPE_RAM;
+
   ram->mem = mem;
 }

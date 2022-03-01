@@ -10,9 +10,12 @@ static uint8_t e8bit_rom_read(const struct e8bit_bus_dev *dev, uint16_t addr) {
 
 void e8bit_rom_setup(struct e8bit_rom *rom,
     uint16_t base, uint16_t size, const uint8_t *mem) {
-  rom->dev.base = base;
-  rom->dev.end = base + (size - 1);
-  rom->dev.read = e8bit_rom_read;
-  rom->dev.type = E_E8BIT_BUS_TYPE_ROM;
+  struct e8bit_bus_dev *dev = &rom->dev;
+
+  dev->base = base;
+  dev->end = base + (size - 1);
+  dev->read = e8bit_rom_read;
+  dev->type = E_E8BIT_BUS_TYPE_ROM;
+
   rom->mem = mem;
 }

@@ -54,12 +54,14 @@ static void e8bit_io_write(const struct e8bit_bus_dev *dev,
 
 void e8bit_io_setup(struct e8bit_io *io,
     uint16_t base, uint16_t size, uint8_t *mem) {
-  INIT_LIST_HEAD(&io->head);
+  struct e8bit_bus_dev *dev = &io->dev;
 
-  io->dev.base = base;
-  io->dev.end = base + (size - 1);
-  io->dev.read = e8bit_io_read;
-  io->dev.write = e8bit_io_write;
-  io->dev.type = E_E8BIT_BUS_TYPE_IO;
+  dev->base = base;
+  dev->end = base + (size - 1);
+  dev->read = e8bit_io_read;
+  dev->write = e8bit_io_write;
+  dev->type = E_E8BIT_BUS_TYPE_IO;
+
+  INIT_LIST_HEAD(&io->head);
   io->mem = mem;
 }
