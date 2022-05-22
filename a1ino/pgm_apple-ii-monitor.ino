@@ -3,13 +3,13 @@
 
 static const char __apple_ii_monitor_name[] PROGMEM = "APPLE-II MONITOR";
 
-static const uint8_t __apple_ii_monitor_f000[] PROGMEM = {
+static const uint8_t __apple_ii_monitor_f400[] PROGMEM = {
 #include "rom/pgm_apple-ii-monitor_f400.h"
 };
 
 #define APPLE_II_MONITOR_ROM_BASE   0xF400
 #define APPLE_II_MONITOR_ROM_RUN    0xFE59
-#define APPLE_II_MONITOR_ROM_SIZE   sizeof(__apple_ii_monitor_f000)
+#define APPLE_II_MONITOR_ROM_SIZE   sizeof(__apple_ii_monitor_f400)
 
 struct a1ino_pgm *__apple_ii_monitor_get_instance(void) {
   static struct a1ino_pgm pgm;
@@ -19,7 +19,7 @@ struct a1ino_pgm *__apple_ii_monitor_get_instance(void) {
   pgm.run = APPLE_II_MONITOR_ROM_RUN;
 
   e8bit_rom_setup(&pgm.rom,
-      APPLE_II_MONITOR_ROM_BASE, APPLE_II_MONITOR_ROM_SIZE, __apple_ii_monitor_f000);
+      APPLE_II_MONITOR_ROM_BASE, APPLE_II_MONITOR_ROM_SIZE, __apple_ii_monitor_f400);
 
   return &pgm;
 }
