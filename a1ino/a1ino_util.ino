@@ -3,7 +3,7 @@
 
 #include "inc/a1ino.h"
 
-void a1ino_puts_P(const char *str) {
+void a1ino_putstr_P(const char *str) {
   size_t i;
 
   for (i = 0; i < strlen_P(str); i++) {
@@ -11,6 +11,10 @@ void a1ino_puts_P(const char *str) {
 
     A1INO_Serial.print(c);
   }
+}
+
+void a1ino_putstrln_P(const char *str) {
+  a1ino_putstr_P(str);
 
   A1INO_Serial.println();
 }

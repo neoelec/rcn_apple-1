@@ -51,7 +51,7 @@ void a1ino_creator_template(struct a1ino *emul, void (*concrete_creator)(struct 
     pgm = emul->rom->pgm[i];
 
     A1INO_Serial.print(F("  - "));
-    a1ino_puts_P(pgm->name);
+    a1ino_putstrln_P(pgm->name);
     rom_base = min(rom_base, pgm->base);
   }
 
