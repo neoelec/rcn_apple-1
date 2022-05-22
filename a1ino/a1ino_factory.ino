@@ -35,7 +35,6 @@ struct a1ino *a1ino_factory(size_t prod_id) {
 }
 
 void a1ino_creator_template(struct a1ino *emul, void (*concrete_creator)(struct a1ino *)) {
-  struct a1ino_pgm *pgm;
   uint16_t rom_base = 0xFFFF;
   uint16_t ram_max;
   size_t i;
@@ -46,11 +45,13 @@ void a1ino_creator_template(struct a1ino *emul, void (*concrete_creator)(struct 
   if (concrete_creator)
     concrete_creator(emul);
 
-  A1INO_Serial.println(F("* ROM : "));
+  A1INO_Serial.println(F("* ROM :"));
   for (i = 0; i < emul->rom->nr_pgm; i++) {
-    pgm = emul->rom->pgm[i];
+    struct a1ino_pgm *pgm = emul->rom->pgm[i];
+    static const char run_fmt[] PROGMEM = "%04X R - ";
 
     A1INO_Serial.print(F("  - "));
+    a1ino_printf_P(run_fmt, pgm->run);
     a1ino_putstrln_P(pgm->name);
     rom_base = min(rom_base, pgm->base);
   }
