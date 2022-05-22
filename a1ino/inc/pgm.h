@@ -6,5 +6,6 @@
 #include "pgm_krusader-1_3.h"
 #include "pgm_osi-6502-basic.h"
 #include "pgm_tiny-basic.h"
+#include "pgm_ehbasic.h"
 
 #endif /* __PGM_H__ */

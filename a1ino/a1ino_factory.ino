@@ -16,6 +16,9 @@ extern void a1ino_describe_4(size_t idx);
 extern void a1ino_create_5(struct a1ino *emul);
 extern void a1ino_describe_5(size_t idx);
 
+extern void a1ino_create_6(struct a1ino *emul);
+extern void a1ino_describe_6(size_t idx);
+
 #define ROM_DATA(__create, __describe) \
   { .create = __create, .describe = __describe, }
 
@@ -29,6 +32,7 @@ struct {
   ROM_DATA(a1ino_create_3, a1ino_describe_3),
   ROM_DATA(a1ino_create_4, a1ino_describe_4),
   ROM_DATA(a1ino_create_5, a1ino_describe_5),
+  ROM_DATA(a1ino_create_6, a1ino_describe_6),
 };
 
 struct a1ino *a1ino_factory(size_t prod_id) {
