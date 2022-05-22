@@ -30,6 +30,7 @@ void setup(void) {
   delay(1500);
 
   __print_banner();
+  a1ino_print_supported_product();
   __select_emulator_type();
 
   emul->state_machine = a1ino_state_reset;

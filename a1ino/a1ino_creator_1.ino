@@ -12,16 +12,20 @@ static struct a1ino_pgm **__creator_1_setup_pgm(size_t *nr_pgm) {
   return pgm;
 }
 
-static void __creator_1(struct a1ino *emul) {
+static struct a1ino_rom *__creator_1(void) {
   static struct a1ino_pgm **pgm;
   static size_t nr_pgm;
 
   if (!pgm)
     pgm = __creator_1_setup_pgm(&nr_pgm);
 
-  emul->rom = a1ino_rom_get_instance(pgm, nr_pgm);
+  return a1ino_rom_get_instance(pgm, nr_pgm);
 }
 
-void a1ino_creator_1(struct a1ino *emul) {
+void a1ino_create_1(struct a1ino *emul) {
   a1ino_creator_template(emul, __creator_1);
+}
+
+void a1ino_describe_1(size_t idx) {
+  a1ino_describe_template(idx, __creator_1);
 }
